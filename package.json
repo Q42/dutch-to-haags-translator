@@ -2,7 +2,7 @@
   "name": "dutch-to-haags-translator",
   "version": "1.0.0",
   "description": "Translate Dutch to the Hague dialect",
-  "main": "dist/index.js",
+  "main": "dist/translator.js",
   "engines": {
     "node": ">=10.7"
   },
