@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",
+    "strict": true,
+    "lib": [
+      "es2015"
+    ],
+    "outDir": "dist",
+    "declaration": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/__tests__/*.ts",
+    "src/**/__mocks__/*.ts"
+  ],
+  "compileOnSave": true,
+  "sourceMap": true
+}

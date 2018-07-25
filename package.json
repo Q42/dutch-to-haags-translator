@@ -1,0 +1,41 @@
+{
+  "name": "dutch-to-haags-translator",
+  "version": "1.0.0",
+  "description": "Translate Dutch to the Hague dialect",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=10.7"
+  },
+  "scripts": {
+    "start": "npm run compile && node dist/index.js",
+    "compile": "rm -rf ./dist && tsc",
+    "compile:watch": "rm -rf ./dist && tsc --watch",
+    "test": "jest --coverage",
+    "posttest": "npm run lint",
+    "lint": "tslint --project tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Q42/haags-translator"
+  },
+  "keywords": [
+    "translate",
+    "dutch",
+    "the-hague",
+    "haags"
+  ],
+  "author": {
+    "name": "Bob van Oorschot",
+    "email": "bob@q42.nl"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^10.5.2",
+    "jest": "^23.4.1",
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.6"
+  }
+}
