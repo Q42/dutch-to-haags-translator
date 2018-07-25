@@ -504,11 +504,12 @@ function getHits(dutch: string) {
 
 function showHits(dutch: string) {
   getHits(dutch).map((r) => {
+    // tslint:disable-next-line
     console.log('\x1b[32m', `[${r[0]}]`, '\x1b[0m-\x1b[33m', `[${r[1]}]`, '\x1b[0m:', r[2]);
   });
 }
 
 module.exports = {
-  translate,
   showHits,
+  translate,
 };
