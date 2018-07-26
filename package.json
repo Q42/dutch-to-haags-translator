@@ -1,5 +1,5 @@
 {
-  "name": "dutch-to-haags-translator",
+  "name": "@q42/dutch-to-haags-translator",
   "version": "1.0.0",
   "description": "Translate Dutch to the Hague dialect",
   "main": "dist/translator.js",
