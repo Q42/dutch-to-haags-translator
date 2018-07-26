@@ -7,7 +7,6 @@
     "node": ">=10.7"
   },
   "scripts": {
-    "start": "npm run compile && node dist/index.js",
     "compile": "rm -rf ./dist && tsc",
     "compile:watch": "rm -rf ./dist && tsc --watch",
     "lint": "tslint --project tsconfig.json",

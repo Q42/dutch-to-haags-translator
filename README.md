@@ -27,14 +27,20 @@ Special thanks to: [Mark](https://github.com/crunchie84),
 [Maurice](https://github.com/mauricehaak), [Roelfjan](https://github.com/roelfjan), Sjaak Bral, Marnix Rueb and Robert-Jan Rueb
 
 ## Develop
+```bash
+$ npm run compile:watch
+$ npm run test
+```
 
 ## Deploy
 ```bash
-# 
+# bump version
 $ npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
    
-#not sure yet, do a dryrun
+# not sure yet, do a dryrun
 $ npm run dryrun
+   
+# pubplish
 $ npm publish
 ```
 
