@@ -499,20 +499,22 @@ function getHits(dutch: string) {
   }
 
   const result: Array<[string, string, string]> = [];
-  return translationReplacements.reduce((r, replacement) => {
+  translationReplacements.reduce((r, replacement) => {
     try {
-      const original = dutch;
+      const original = r;
       const haags = original.replace(new RegExp(replacement[0], "gm"), replacement[1]);
       const didHit = original.toLowerCase() !== haags.toLowerCase();
 
       if (didHit) {
-        r.push([replacement[0], replacement[1], haags]);
+        result.push([replacement[0], replacement[1], haags]);
       }
-      return r;
+      return haags;
     } catch (e) {
       return r;
     }
-  }, result);
+  }, dutch);
+
+  return result;
 }
 
 function showHits(dutch: string) {
