@@ -466,7 +466,20 @@ const translationReplacements = originalTranslationReplacements.map((r) => {
   return [regex, r[1]];
 });
 
+function checkNodeVersion() {
+  const match = process.version.match(/^v(\d+)/);
+  if (!match) {
+    return;
+  }
+  const majorVersion = Number(match[1]);
+  if (majorVersion < 10) {
+    throw new Error("This package requires Node v10 or higher");
+  }
+}
+
 function translate(dutch: string) {
+  checkNodeVersion();
+
   if (!dutch) {
     return dutch;
   }

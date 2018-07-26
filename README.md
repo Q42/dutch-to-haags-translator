@@ -3,7 +3,7 @@
 
 ## Installation
 With [npm](https://www.npmjs.com/) installed, run
-```
+```bash
 $ npm install haags-translator --save
 ```
 
@@ -26,6 +26,17 @@ This project is a port of the [HaagsTranslator](https://github.com/Q42/HaagsTran
 Special thanks to: [Mark](https://github.com/crunchie84),
 [Maurice](https://github.com/mauricehaak), [Roelfjan](https://github.com/roelfjan), Sjaak Bral, Marnix Rueb and Robert-Jan Rueb
 
+## Develop
+
+## Deploy
+```bash
+# 
+$ npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
+   
+#not sure yet, do a dryrun
+$ npm run dryrun
+$ npm publish
+```
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
