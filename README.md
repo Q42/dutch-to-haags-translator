@@ -9,7 +9,7 @@ $ npm install @q42/dutch-to-haags-translator --save
 
 ## Usage
 ```javascript
-import { translate } from 'dutch-to-haags-translator';
+import { translate } from '@q42/dutch-to-haags-translator';
 console.log(translate('Oh oh Den Haag, mooie stad achter de duinen!'));
   
 // Result: "Oh oh De Haag, mauie stad achtâh de dùinûh!"
@@ -17,7 +17,7 @@ console.log(translate('Oh oh Den Haag, mooie stad achter de duinen!'));
 
 ## Debugging
 ```javascript
-import { showHits } from 'dutch-to-haags-translator';
+import { showHits } from '@q42/dutch-to-haags-translator';
 showHits('Oh oh Den Haag, mooie stad achter de duinen!');
 ```
 
