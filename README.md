@@ -4,7 +4,7 @@
 ## Installation
 With [npm](https://www.npmjs.com/) installed, run
 ```bash
-$ npm i @q42/dutch-to-haags-translator --save
+$ npm install @q42/dutch-to-haags-translator --save
 ```
 
 ## Usage
