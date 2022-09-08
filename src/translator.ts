@@ -387,7 +387,7 @@ const originalTranslationReplacements = [
   ["rigste", "ragste"], // 'bloederigste'
   ["rod", "raud"], // 'madurodam'
   ["(r|R)ou", "$1oe"], // 'routes'
-  ["(a|o)rt", "$1gt"],  // 'korte'
+  ["(a|o)rt", "$1gt"], // 'korte'
   ["([Rr])o(?=ma)", "$1au"], // voor romantisch, maar haal bijv. rommel eruit
   ["inds", "ins"], // 'sinds'
   ["seque", "sekwe"], // 'inconsequenties'
@@ -498,11 +498,14 @@ function getHits(dutch: string) {
     return [];
   }
 
-  const result: Array<[string, string, string]> = [];
+  const result: [string, string, string][] = [];
   translationReplacements.reduce((r, replacement) => {
     try {
       const original = r;
-      const haags = original.replace(new RegExp(replacement[0], "gm"), replacement[1]);
+      const haags = original.replace(
+        new RegExp(replacement[0], "gm"),
+        replacement[1]
+      );
       const didHit = original.toLowerCase() !== haags.toLowerCase();
 
       if (didHit) {
@@ -520,7 +523,14 @@ function getHits(dutch: string) {
 function showHits(dutch: string) {
   getHits(dutch).map((r) => {
     // tslint:disable-next-line
-    console.log('\x1b[32m', `[${r[0]}]`, '\x1b[0m-\x1b[33m', `[${r[1]}]`, '\x1b[0m:', r[2]);
+    console.log(
+      "\x1b[32m",
+      `[${r[0]}]`,
+      "\x1b[0m-\x1b[33m",
+      `[${r[1]}]`,
+      "\x1b[0m:",
+      r[2]
+    );
   });
 }
 
