@@ -284,7 +284,7 @@ const testCases = [
   ],
   [
     "vliegtuig Waar literatuur orgineel kinderboekenmuseum oudste ontmoet enkele ",
-    "vliegtùig Waah literatuâh oâhgineil kindâhboekemuseum âhdste ontmoet enkele ",
+    "vliegtùig Waah literatuâh oâhgineil kindâhboekemuseijum âhdste ontmoet enkele ",
   ],
   [
     "ver vers tour kopje tradities kidstips behulp sport deze ",
@@ -296,7 +296,7 @@ const testCases = [
   ],
   [
     "highlights menu see zorgen omgeving boulevard ideaal platform vormgeving externe depot warm ",
-    "haailaaits menu sie zorrage omgeiving boelevâh ideiaal platfoâhm vorremgeiving eksterne deipau warrem ",
+    "haailaaits menu sie zorrage omgeiving boelevâh ideiaal platforrum vorremgeiving eksterne deipau warrem ",
   ],
   [
     "huisjes food fastfood 't tegenover station stijl ",
@@ -344,7 +344,7 @@ const testCases = [
   ],
   [
     "movies that literatuurfestival favoriete cultureel Ook gemeentemuseum collectie Hieronymus Dance beroemdste winkelen ",
-    "moevies det literatuâhfestival favverietûh kultereil Auk gemeintemuseum kolleksie Hieraunimus Dens beroempste winkele ",
+    "moevies det literatuâhfestival favverietûh kultereil Auk gemeintemuseijum kolleksie Hieraunimus Dens beroempste winkele ",
   ],
   [
     "flagshipstores Bijenkorf talloze vintage Shop till you drop marktstraat yoga Bergen chique Corona eigentijds ",
@@ -416,9 +416,10 @@ const testCases = [
     "Ènd pegsauneil pegs gepegsaunaliseâhde rustag schure stappie Èsselmeâh andâhhalluf andâhhalleve vegezeld algemein beikâhgoal beikâhheld",
   ],
   [
-    "bouwt kern Broodje bal expert vuilcontainer",
-    "bâht kerren Beschùitstùitâh expeâh vùilkonteinâh",
+    "bouwt kern Broodje bal expert vuilcontainer energie uitgeverij geselecteerd positie boorplatform biersoort elke tegelijkertijd persbijeenkomst der",
+    "bâht kerren Beschùitstùitâh expeâh vùilkonteinâh einegie ùitgeiverè geseilekteâhd pausisie boâhplatforrum bieâhsoâht elleke tegelijkertèd pegsbèeinkomps deâh",
   ],
+  ["museum branch", "museijum bransj"],
 ];
 
 test("Test different sentences", () => {
