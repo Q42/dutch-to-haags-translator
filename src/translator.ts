@@ -4,6 +4,8 @@ const originalTranslationReplacements = [
   ["childerswijk", "childâhswijk"],
   ["eider", "èijâh"], // 'projectleider'
   ["(?<![o])ei", "è"], // moet voor 'scheveningen' en 'eithoeke', geen 'groeit'
+  ["Ei", "È"], // 'Eind'
+  ["(B|b)roodje bal", "$1eschùitstùitâh"],
   ["koets", "patsâhbak"],
   ["kopje koffie", "bakkie pleuâh"],
   ["Kopje koffie", "Bakkie pleuâh"],
@@ -33,14 +35,15 @@ const originalTranslationReplacements = [
   ["(F|f)avorite", "$1avverietûh"],
   ["(F|f)avoriete", "$1avverietûh"],
   ["(F|f)lagship", "fleksjip"],
-  ["Jazz", "Djez"],
-  ["jazz", "djez"],
+  ["Jazz", "Djes"],
+  ["jazz", "djes"],
   ["(T|t)entoon", "$1etoon"],
   ["(C|c)abaret", "$1abberet"],
   ["(M|m)usical", "$1usikol"],
   ["kids", "kindâh"], // 'kindertips'
   ["(M|m)ovies", "$1oevies"],
-  ["(O|o)rigin", "$1rresjin"], // 'originele
+  ["(?<![Zz])(O|o)r(i|)g", "$1âhg"], // 'originele', 'organisatie', geen 'zorg'
+  ["chine", "sjine"], // 'machine'
   ["(P|p)alace", "$1ellus"],
   ["(P|p)rivacy", "$1raaivesie"],
   ["policy", "pollesie"],
@@ -62,19 +65,22 @@ const originalTranslationReplacements = [
   ["(W|w)ork", "$1urrek"],
   ["(B|b)ibliotheek", "$1iebeleteik"],
   ["(F|f)ood", "$1oet"],
+  ["mondkapje", "bekbedekkâh"],
+  ["Mondkapje", "Bekbedekkâh"],
   ["doe je het", "doejenut"],
   ["\\bsee\\b", "sie"], // van 'must see'
-  ["\\b(M|n)ust\\b", "$1us"], // van 'must see'
+  ["(M|n|R|r)ust(?![ai])", "$1us"], // van 'must see', 'rustsignaal', geen 'rustig'
   ["(M|m)oeten", "$1otte"], // moet voor '-en'
   ["(w|W)eleens", "$1elles"], // 'weleens', moet voor 'hagenees'
   ["(g|G)ouv", "$1oev"], // 'gouveneur'
   ["heeft", "hep"], // 'heeft', moet voor 'heef'
   ["(on|i)der(?!e)", "$1dâh"], // 'onder', 'Zuiderpark', geen 'bijzondere'
   ["(?<![ao])ndere", "ndâhre"], // 'bijzondere', geen 'andere'
+  ["uier\\b", "uiâh"], // 'sluier', moet voor 'ui'
   ["ui", "ùi"], // moet voor 'ooi' zitte n
   ["Ui", "Ùi"],
-  ["oort", "ogt"], // 'soort', moet voor '-ort'
-  ["(?<![eo])ert\\b", "egt"], // 'gert'
+  ["(?<![ieopf])ert\\b", "egt"], // 'gert', geen 'viert', 'expert'
+  ["pert\\b", "peâh"], // 'expert'
   ["\\b(V|v)ert", "$1et"], // 'vertegenwoordiger', moet voor '-ert'
   ["(?<![eo])erte", "egte"], // 'concerten'
   ["(?<![eo])(a|o)r(|s)t(?!j)", "$1g$2t"], // barst, martin etc., geen 'eerste', 'biertje', 'sport', 'voorstellingen'
@@ -83,12 +89,14 @@ const originalTranslationReplacements = [
   ["\\b(A|a)an", "$1n"], // 'aan', 'aanrennen'
   ["\\b(G|g)aan\\b", "$1an"], // 'gaan'
   ["(H|h)oud\\b", "$1ou"], // 'houd', moet voor 'oud'
+  ["(B|b|R|r)ou(l|t)", "$1oe$2"], // 'boulevard','routes'
   ["(au|ou)w(?!e)", "$1"], // 'vrouw', ''flauw', maar zonder 'blauwe'
   ["oude", "ouwe"], // 'goude'
   ["\\b(T|t)our\\b", "$1oeâh"],
   ["diner\\b", "dinei"],
-  ["(B|b|R|r)ou(l|t)", "$1oe$2"], // 'boulevard','routes'
-  ["(?<![e])(au|ou)(?!v)", "âh"], // 'oud', geen 'souvenirs', 'cadeau', 'bureau', 'routes'
+  ["o(e|u)r\\b", "oeâh"], // 'broer', 'retour', moet voor 'au|ou'
+  ["oer(?![aieou])", "oeâh"], // 'beroerd', 'hoer', geen 'toerist', 'stoere, moet voor 'au|ou'
+  ["(?<![e])(au|ou)(?![v])", "âh"], // 'oud', geen 'souvenirs', 'cadeau', 'bureau', 'routes'
   ["Ou", "Âh"], // 'Oud'
   ["aci", "assi"], // 'racist'
   ["als een", "assun"], // 'als een'
@@ -116,7 +124,6 @@ const originalTranslationReplacements = [
   ["\\b(M|m)et je\\b", "$1ejje"],
   ["\\b(V|v)ind je\\b", "$1ijje"],
   ["\\bmij het\\b", "mènnut"],
-
   ["\\b(A|a)ls er\\b", "$1stâh"],
   ["\\b(K|k)(u|a)n j(e|ij) er\\b", "$1ejjedâh"], // 'ken je er'
   ["\\b(K|k)un je\\b", "$1ajje"],
@@ -129,6 +136,7 @@ const originalTranslationReplacements = [
   ["\\balleen\\b", "enkelt"],
   ["\\bAlleen\\b", "Enkelt"],
   ["(A|a)ls je", "$1sje"], // moet voor 'als'
+  ["athe", "atte"], // 'kathedraal'
   ["(?<![v])als\\b", "as"],
   ["(b|k|w)ar\\b", "$1âh"],
   ["\\bAls\\b", "As"],
@@ -138,29 +146,32 @@ const originalTranslationReplacements = [
   ["bt\\b", "b"], // 'hebt'
   ["cc", "ks"], // 'accenten'
   ["chique", "sjieke"],
-  ["chure", "sjure"], // 'brochure'
-  ["ct", "kt"], // 'geactualiseerde', 'directie'
-  ["C(a|o)", "K$1"], // 'Concerten', 'Cadeau'
-  ["cor\\b", "koâh"], // 'decor'
+  ["(?<![s])chure", "sjure"], // 'brochure', geen 'schuren'
+  ["pact", "pekt"], // 'impact'
+  ["c(a|o|t|r)", "k$1"], // 'geactualiseerde', 'directie', 'crisis'
+  ["C(a|o|t|r)", "K$1"], // 'Concerten', 'Cadeau'
+  ["(c|k)or\\b", "$1oâh"], // 'decor'
   ["(?<![.])c(a|o)", "k$1"], // 'concerten', 'cadeau', 'collectie', geen '.com'
+  ["\\bkoro", "kerau"], // 'corona'
   ["cu", "ku"], // 'culturele'
   ["Cu", "Ku"], // 'culturele'
+  ["ci(ë|ee)l", "sjeil"], // 'financieel', 'financiële'
   ["(ch|c|k)t\\b", "$1"], // woorden eindigend op 'cht', 'ct', 'kt', of met een 's' erachter ('geslachts')
-  ["(ch|c|k)t(?![aeiouâ])", "$1"], // woorden eindigend op 'cht', 'ct', 'kt', of met een 's' erachter ('geslachts')
+  ["(ch|c|k)t(?![aeiouâr])", "$1"], // woorden eindigend op 'cht', 'ct', 'kt', of met een 's' erachter ('geslachts'), geen 'elektronische'
+  ["(?<![Gg])(e|r)gt\\b", "$1g"], // 'zorgt', 'legt'
   ["(d|D)at er", "$1attâh"], // 'dat er'
   ["(d|D)at is ", "$1a's "], // 'dat is'
   ["denst", "dest"],
   ["derb", "dâhb"],
+  ["nderh", "ndâhh"], // 'anderhalf', geen 'derhalve'
   ["derd\\b", "dâhd"], // 'veranderd'
-  // ["(?i)(d)eze(?![l])", "$1eize"],
-  ["(D|d)eze\\b", "$1eize"], // warn: alternative for the one above
+  ["(D|d)eze(?![l])", "$1eize"], // 'deze', geen 'dezelfde'
   ["dt\\b", "d"], // 'dt' op het einde van een woord
   ["\\b(B|b)ied\\b", "$1iedt"], // uitzondering, moet na '-dt'
-
   ["(D|d)y", "$1i"], // dynamiek
   ["eaa", "eiaa"], // 'ideaal'
   ["eau\\b", "o"], // 'cadeau', 'bureau'
-  ["ègen", "ège"], // 'eigentijds', moet voor 'ee'
+  ["ègent", "èget"], // 'eigentijds', moet voor 'ee', geen 'dreigend'
   ["Eig", "Èg"], // 'Eigenlijk', moet voor 'ee'
   ["eig", "èg"], // 'eigenlijk', moet voor 'ee'
   ["uee\\b", "uwee"], // 'prostituee', moet voor '-ee'
@@ -178,34 +189,39 @@ const originalTranslationReplacements = [
   ["(?<![eo])erd\\b", "egd"], // 'werd', geen 'verkeerd', 'gefeliciteerd', 'beroerd
   ["eerd", "eâhd"], // 'verkeerd'
   ["(?<![k])ee(d|f|g|k|l|m|n|p|s|t)", "ei$1"], // 'bierfeest', 'kreeg', 'greep', geen 'keeper'
-  ["(?<![èijhm])ds(?![eè])", "s"], // moet na 'ee','godsdienstige', 'gebedsdienst', geen 'ahdste', 'beroemdste', 'eigentijds', 'weidsheid', 'reeds', 'strandseizoen'
-  ["(?<![e])ens\\b", "es"], // 'ergens', geen 'weleens'
+  ["ands\\b", "ens"], // 'hands', moet voor 'ds'
+  ["(?<![t])ain", "ein"], // 'trainer', geen 'quarantaine'
+  ["(?<![èijhm])ds(?![ceèt])", "s"], // moet na 'ee','godsdienstige', 'gebedsdienst', geen 'ahdste', 'boodschappen', 'beroemdste', 'eigentijds', 'weidsheid', 'reeds', 'strandseizoen', 'wedstrijd'
+  ["(?<![eh])ens\\b", "es"], // 'ergens', geen 'weleens', 'hands/hens'
   ["(D|d)ance", "$1ens"], // moet na '-ens'
   ["(?<![ hi])eden\\b", "eije"], // geen 'bieden'. 'bezienswaardigheden'
   ["(?<![ bgi])eden", "eide"], // 'hedendaagse', geen 'bedenken'
   ["\\b(E|e)ve", "$1ive"], // 'evenementen'
-  ["me(d|t)e", "mei$1e"], // 'medeklinkers'
+  ["(?<![a])(m|M|R|r)e(d|t|n)e(?![e])", "$1ei$2e"], // 'medeklinkers', 'rede', geen 'Hagenees', 'meneer'
+  ["(G|g|)(E|e)ner", "$1$2iner"], // 'generatie', 'energie'
   ["eugd", "eug"], // 'jeugd', 'jeugdprijs'
   ["(?<![o])epot\\b", "eipau"], // 'depot'
   ["(e|E)rg\\b", "$1rrag"], // 'erg', moet voor 'ergens'
   ["(?<![fnN])(a|o)rm", "$1rrem"], // 'platform', 'vormgeving', 'warm', geen 'normale', 'informatie'
-  ["(f|N|n)orm", "$1oâhm"], // 'normale', 'informatie'
-  ["(i|I)nter", "$1ntâh"], // moet voor '-ern'
+  ["(f|N|n)orma", "$1oâhma"], // 'normale', 'informatie', geen 'boorplatform'
+  ["(i|I)nter(?!a)", "$1ntâh"], // moet voor '-ern', geen 'gemeenteraad'
   ["elden", "elde"], // 'zeeheldenkwartier'
-  ["(?<![epvV])er(m|n)", "erre$1"], // kermis', geen 'vermeer', 'vermoeide', 'externe', 'supermarkt'
-  ["(?<![etv])(e|E)rg(?!ez)", "$1rreg"], // 'kermis', 'ergens', geen 'achtergelaten', 'neergelegd', 'overgebleven', 'ubergezellige'
-  ["ber(?![eoiuâè])", "bâh"], // 'ubergezellige', moet na '-erg'
-  ["(G|g)eve(r|n)", "$1eive$2"], // 'Gevers', moet voor '-ers', geen 'gevestigd'
-  ["(?<![eo ])ers(?![. ,c])", "egs"], // 'diverse', 'versie', geen klinkers, geen 'eerste', geen 'verscheen'
-  ["Vers\\b", "Vegs"], // 'vers', moet voor -ers}
-  ["(?<![ei])vers\\b", "vegs"], // 'vers', moet voor -ers, geen 'Gevers'
+  ["oeter", "oetâh"], // 'Zoetermeer', moet voor 'kermis'
+  ["erm\\b", "errum"], // 'scherm', moet voor 'kermis'
+  ["(?<![ieoptvV])er(m|n)", "erre$1"], // kermis', geen 'vermeer', 'vermoeide', 'toernooi', 'externe', 'supermarkt', termijn, 'hierna'
+  ["(?<![ektv])(e|E)rg(?!ez|i)", "$1rreg"], // 'kermis', 'ergens', geen 'achtergelaten', 'neergelegd', 'overgebleven', 'ubergezellige', 'bekergoal', 'energie'
+  ["ber(?![eoiuaâè])", "bâh"], // 'ubergezellige', moet na '-erg', geen 'beraden'
+  ["(P|p)ers", "$1egs"], // 'pers'
+  ["(?<![e])(t|V|v)ers(?![clt])", "$1egs"], // 'vers', 'personeel', 'versie', 'diverse', geen 'gevers', 'verscheen', 'eerste',
+  ["(G|g)eve(r|n)", "$1eive$2"], // 'Gevers', moet na 'vers', geen 'gevestigd'
   ["renstr", "restr"], // 'herenstraat' (voor koppelwoorden)
   ["(?<![eIio])eder", "eider"], // 'Nederland', geen 'iedereen', 'bloederige', 'Iedere'
-  ["(?<![eio])ers\\b", "âhs"], // 'klinkers'
+  ["(?<![eiop])ers\\b", "âhs"], // 'klinkers', geen 'pers', 'personeel'
+  ["(H|h)er(?![erp])", "$1eâh"], // 'herzien', 'herstel', geen 'herenstraat', 'scherm', 'scherp', moet voor 'ers'
   ["(?<![v])ers(c|t)", "âhs$1"], // 'eerste', 'bezoekerscentrum', geen 'verschaffen'
   ["erwt", "erret"], // 'erwtensoep'
   ["(?<![eo])eci", "eici"], // 'speciaal'
-  ["ese", "eise"], // 'reserveer'
+  ["(?<![Bbg])ese", "eise"], // 'reserveer', geen 'beseffen', 'geselecteerd'
   ["eiser", "eisâh"], // 'reserveer'
   ["eur\\b", "euâh"], // worden eindigend op 'eur', zoals 'deur', 'gouveneurlaan', geen 'kleuren'
   ["eur(?![eio])", "euâh"], // worden eindigend op 'eur', zoals 'deur', 'gouveneurlaan', geen 'kleuren', 'goedkeuring', 'euro
@@ -213,28 +229,35 @@ const originalTranslationReplacements = [
   ["eurl", "euâhl"], // worden eindigend op 'eur', zoals 'deur', 'gouveneurlaan'
   ["eer", "eâh"], // 'zweer', 'neer'
   ["elk\\b", "ellek"], // 'elk'
+  ["(?<![o])ega", "eige"], // 'negatief', geen 'toegang'
   ["(E|e)xt", "$1kst"], // 'extra'
-  ["(H|h)ele", "$1eile"], // 'gehele', 'hele'
+  ["(H|h|n)ele", "$1eile"], // 'gehele', 'hele', 'originele'
+  ["(G|g)ese", "$1esei"], // 'geselecteerd'
   ["\\b(g|G|v|V)ele\\b", "$1eile"], // 'vele', 'gele', 'hele'
-  ["nele", "neile"], // 'originele'
+  ["ebut", "eibut"], // 'debuteren', geen 'debuut'
   ["\\b(D|d)elen", "$1eile"], // 'delen', geen 'wandelen'
   ["sdelen", "sdeile"], // 'geslachtsdelen', geen 'wandelen'
   ["(?<![diokrs])ele(n|m)", "eile$1"], // 'helemaal', geen 'enkele', 'winkelen', 'wandelen', 'borrelen', 'beginselen'
   ["(B|b)eke(?![n])", "$1eike"], // 'beker', geen 'bekende'
+  ["(B|b)ene(?![v])", "$1eine"], // 'benen', geen 'beneveld'
   ["(?<![ioBbg])eke", "eike"], // geen 'aangekeken' op 'gek', wel 'kek'
   ["(?<![r])rege", "reige"], // 'gekregen', geen 'berrege'
-  ["(?<![bBIior])e(g|v|p)e(l|n|m| )", "ei$1e$2"], // aangegeven, geen 'geleden', 'uitspreken', 'geknepen', 'goeveneur', 'verdiepen', 'postzegels', 'begeleiding', 'berregen'
+  ["(T|t)ege(?![l])", "$1eige"], // 'tegen', geen 'tegelijkertijd'
+  ["(?<![bBIiort])e(g|v|p)e(l|n|m| )", "ei$1e$2"], // aangegeven, 'leverde', geen 'geleden', 'uitspreken', 'geknepen', 'goeveneur', 'verdiepen', 'postzegels', 'begeleiding', 'berregen', 'tegelijkertijd'
   ["dige", "dege"], // 'vertegenwoordiger', moet na 'ege'
+  ["(L|l)ever", "$1eiver"], // 'leverde'
   ["alve\\b", "alleve"], // 'halve', moet na 'aangegeven'
   ["\\b(K|k)en\\b", "$1an"], // moet voor -en
   ["(a|o)ien\\b", "$1ie"], // 'uitwaaien', geen 'zien'
   ["(?<![ ieo])en([.?!])", "ûh$1"], // einde van de zin, haal ' en ', 'doen', 'zien' en 'heen'  eruit
-  ["(?<![ bieoh])en\\b", "e"], // haal '-en' eruit, geen 'verscheen', 'tien', 'indien', 'ben', 'doen', 'hen'
+  ["(?<![ bieohr])en\\b", "e"], // haal '-en' eruit, geen 'verscheen', 'tien', 'indien', 'ben', 'doen', 'hen'
+  ["(?<![r])ren\\b", "re"], // oren, geen 'kerren'
   ["bben\\b", "bbe"], // 'hebben'
   ["oien\\b", "oie"], // 'weggooien'
   ["enso", "eso"], // 'erwtensoep'
+  ["eum", "eijum"], // 'museum'
   ["(?<![eio])enm(?![e])", "em"], // 'kinderboekenmuseum', geen 'kenmerken'
-  ["(?<![eio])en(b|h|j|l|p|r|v|w|z)", "e$1"], // 'binnenhof', geen 'paviljoenhoeder'
+  ["(?<![eiorvV])en(b|h|j|l|p|r|v|w|z)", "e$1"], // 'binnenhof', geen 'paviljoenhoeder', 'venlo', 'Bernhard'
   ["([Hh])eb je ", "$1ebbie "], // voor '-eb'
   ["(H|h)eb (un|een)\\b", "$1ep'n"], // voor '-eb'
   ["(?<![eu])eb\\b", "ep"],
@@ -245,7 +268,7 @@ const originalTranslationReplacements = [
   ["(I|i)ndeli", "$1ndeili"], // 'indeling', geen 'eindelijk', 'wandelingen'
   ["(f|p)t\\b", "$1"], // 'blijft', 'betrapt'
   ["\\b(N|n)iet\\b", "$1ie"], // 'niet', geen 'geniet'
-  ["fd\\b", "f"], // 'hoofd'
+  ["fd(?![eo])", "f"], // 'hoofd', 'hoofdtrainer', geen 'zelfde', 'verfdoos'
   ["(F|f)eb", "$1eib"], // 'februari'
   ["ngt\\b", "nk"], // 'hangt'
   ["eving", "eiving"], // 'omgeving'
@@ -253,7 +276,6 @@ const originalTranslationReplacements = [
   ["go(r)", "gau$1"], // 'algoritme'
   ["gelegd\\b", "geleige"], // 'neergelegd'
   ["([HhVvr])ee(l|n|t)", "$1ei$2"], // 'verscheen', 'veel', 'overeenkomsten', 'heet'
-  ["(H|h)er(?![e])", "$1eâh"], // 'herzien', geen 'herenstraat'
   ["(I|i)n het", "$1nnut"], // 'in het'
   ["\\b(E|e)te", "$1ite"], // 'eten'
   ["(?<![ior])ete(?![i])", "eite"], // 'hete', 'gegeten', geen 'bibliotheek','erretensoep', 'koffietentjes', 'genieten, 'roetes (routes)'
@@ -261,26 +283,30 @@ const originalTranslationReplacements = [
   ["\\bhet\\b", "ut"],
   ["Het\\b", "Ut"],
   ["(?<![eouù])i\\b", "ie"], // 'januari'
-  ["ieri", "ieâhra"], // 'plezierig'
-  ["ier(?!(a|e|i|ony))", "ieâh"], // 'bierfeest', 'hieronder', geen 'hieronymus', 'plezierig', 'dieren'
+  ["ieri(n|g)", "ieâhri$1"], // 'plezierig', 'viering'
+  ["(?<![uù])ier(?!(a|e|i|ony))", "ieâh"], // 'bierfeest', 'hieronder', geen 'hieronymus', 'plezierig', 'dieren', 'sluier'
   ["iero(?!e|o|nd)", "ierau"], // 'hieronymus', geen 'hieronder'
   ["ière", "ijerre"], // 'barriere'
   ["ibu", "ibe"], // 'tribunaal'
   ["icke", "ikke"], // 'tickets'
+  ["iti(a|o|au)", "isi$1"], // 'initiatief', 'traditioneel'
   ["ijgt\\b", "ijg"], // 'krijgt', moet voor 'ij\\b'
   ["(B|b)ijz", "$1iez"], // 'bijzondere', moet voor 'bij'
   ["ij\\b", "è"], // 'zij', 'bij'
-  ["(?<![e])ije(n|)", "èje"], // 'bijenkorf', 'blije', geen 'geleie'
+  ["(?<![e])ije(?![ei])", "èje"], // 'bijenkorf', 'blije', geen 'geleie', 'bijeenkomst'
+  ["èjen", "èje"], // 'bijenkorf'
   ["(B|b)ij", "$1è"], // 'bijbehorende'
   ["\\blijk\\b", "lèk"], // 'lijk' , geen 'eindelijk' ('-lijk')
   ["(D|d|K|k|R|r|W|w|Z|z)ijk", "$1èk"], // 'wijk', geen '-lijk'
   ["ij([dgslmnftpvz])", "è$1"], // 'knijp', 'vijver', 'stijl', 'vervoersbewijzen', geen '-lijk'
   ["(?<![euù])ig\\b", "ag"], // geen 'kreig', 'vliegtuig'
+  ["tigdù", "tagdù"], // 'vijftigduizend'
   ["lige\\b", "lage"], // 'gezellige'
   ["(?<![euù])igd\\b", "ag"], // gevestigd
+  ["\\bIJ", "È"], // 'IJsselmeer'
   ["ilm", "illem"], // 'film'
   ["ilieu", "ejui"], // 'milieu'
-  ["inc", "ink"], // 'incontinentie'
+  ["inc(k|)", "ink"], // 'incontinentie', 'binckhorst'
   ["io(?![oen])", "iau"], // 'audio', geen 'viool', 'station'
   ["\\bin m'n\\b", "imme"],
   ["(n|r)atio", "$1asjau"], // 'internationale'
@@ -297,7 +323,7 @@ const originalTranslationReplacements = [
   ["jezelf", "je ège"], // "jezelf"
   ["(?<![oe])kje\\b", "kkie"], // 'bakje', moet voor algemeen regel op 'je', TODO, 'bekje'
   ["olg", "olleg"], // 'volgens'
-  ["o(k|p)je\\b", "o$1$1ie"], // 'kopje', 'gokje'
+  ["(a|i|o)(k|p)je\\b", "$1$2$2ie"], // 'kopje', 'gokje', 'tipje', 'stapje'
   ["(?<![ deèijst])je\\b", "ie"], // woorden eindigend op -je', zonder 'asje', 'rijtje', 'avondje', geen 'mejje' 'blèjje', 'skiën'
   ["(K|k)an\\b", "$1en"], // 'kan', geen 'kans', 'kaneel'
   ["(K|k)unne", "$1enne"], // 'kunnen', TODO, wisselen van u / e
@@ -307,16 +333,17 @@ const originalTranslationReplacements = [
   ["oro(?![eo])", "orau"], // 'Corona'
   ["Oo([igkm])", "Au$1"], // 'ook'
   ["oo([difgklmnpst])", "au$1"], // 'hoog', 'dood'
-  ["rij", "rè"],
+  ["lo\\b", "lau"], // 'venlo'
+  ["([RrNn])ij", "$1è"], // 'Nijhuis'
   ["tieg", "sieg"], // 'vakantiegevoel'
   ["(?<![e])tie\\b", "sie"], // 'directie', geen 'beauty'
   ["enties\\b", "ensies"], // 'inconsequenties', geen 'romantisch'
-  ["erpe", "errepe"], // 'modeontwerper'
+  ["er(f|p)", "erre$1"], // 'modeontwerper', 'scherp', 'verf'
   ["(b|B|k|K|m|L|l|M|p|P|t|T|w|W)erk", "$1errek"], // 'kerk', 'werkdagen', geen 'verkeer'
   ["(f|k)jes\\b", "$1$1ies"], // 'plekjes'
   ["(M|m)'n", "$1e"], // 'm'n'
   ["(M|m)ong", "$1eg"], // 'mongool'
-  ["(M|m)ein(?![ut])", "$1eint"], // moet na 'ee', geen 'menu', 'gemeentemuseum'
+  ["k mein(?![ut])", "k meint"], // 'ik meen', moet na 'ee', geen 'menu', 'gemeentemuseum'
   ["mt\\b", "mp"], // 'komt'
   ["(?<![oO])md(?![e])", "mp"], // 'beroemdste', geen 'omdat', 'beroemde
   ["lair(?![e])", "lèh"], // geen 'spectaculaire'
@@ -339,38 +366,41 @@ const originalTranslationReplacements = [
   ["\\b(N|n)u\\b", "$1âh"],
   ["ny", "ni"], // 'hieronymus'
   ["\\bmad", "med"], // 'madurodam'
-  ["oer\\b", "oeâh"], // 'broer'
-  ["oer(?![aieou])", "oeâh"], // 'beroerd', 'hoer', geen 'toerist', 'stoere
   ["oeder", "oedâhr"], // 'bloederigste'
-  ["(ordt|ord)(?![e])", "ogt"], // wordt, word, geen 'worden'
-  ["orde", "ogde"], // 'worden'
+  ["(?<![v])(a|o)(rdt|rd)(?![eû])", "$1gt"], // wordt, word, hard, geen 'worden', 'wordûh', 'boulevard'
+  ["ord(e|û)", "ogd$1"], // 'worden'
   ["(N|n)(|o)od", "$1aud"], // 'noodzakelijk'
   ["nirs\\b", "nieâhs"], // 'souvenirs'
-  ["l(f|k|m|p)(?![a])", "lle$1"], // 'volkslied', 'behulp', geen 'elkaar'
-  ["olk", "ollek"], // 'volkslied'
+  ["l(f|k|m|p)(?![aeou])", "lle$1"], // 'volkslied', 'behulp', geen 'elkaar', 'doelpunten', 'IJsselmeer', 'vuilcontainer'
+  ["(e|o)lk(?![a])", "$1llek"], // 'volkslied','elke', geen 'elkaar'
   ["(F|f)olleklore", "$1olklore"],
   ["o(c|k)a", "auka"], // 'locaties'
   ["(?<![o])oms", "omps"], // 'aankomsthal'
   ["one(e|i)", "aunei"], // 'toneel'
-  ["oni", "auni"], // 'telefonische'
+  ["on(a|i)", "aun$1"], // 'telefonische', 'gepersonaliseerde'
   ["hore", "hoâhre"], // 'bijbehorende'
-  ["org\\b", "orrag"], // 'zorg'
-  ["orge", "orrage"], // 'zorgen'
+  ["org(?![i])", "orrag"], // 'zorg', geen 'orgineel'
   ["orp", "orrep"], // 'ontworpen'
+  ["mor\\b", "moâh"], // 'humor', geen 'humoristische'
   ["\\borg", "oâhg"], // 'orgineel'
   ["Over(?![ei])", "Auvâh"], // 'overgebleven', 'overnachten', geen 'overeenkomsten', 'overige'
-  ["over(?![ei])", "auvâh"], // 'overgebleven', geen 'overeenkomsten', 'overige'
+  ["(?<![z])over(?![ei])", "auvâh"], // 'overgebleven', geen 'overeenkomsten', 'overige', 'zover'
   ["o(v|z)e", "au$1e"],
-  ["(?<![g])o(b|d|g|k|l|m|p|s|t|v)(i|e)", "au$1$2"], // 'komen', 'grote', 'over', 'olie', 'notie', geen 'gokje'
+  ["(?<![g])o(b|d|g|k|l|m|p|s|t|v)(i|e|o|au)", "au$1$2"], // 'komen', 'grote', 'over', 'olie', 'notie', geen 'gokje', 'foto'
   ["O(b|d|g|k|l|m|p|s|t|v)(i|e)", "Au$1$2"], // zelfde, maar dan met hoofdletter
   ["\\bout", "âht"], // 'outdoor'
   ["\\bOut", "Âht"], // 'Outdoor'
   ["\\b(V|v)er\\b", "$1eâh"], // 'ver'
   ["(D|d)ert", "$1eâht"], // 'dertig'
-  ["der(?![eianrouèt])", "dâh"], // 'moderne'/'moderrene', geen 'dertig'
+  ["\\b(D|d)er\\b", "$1eâh"], // 'der'
+  ["der(?![dehianrouèt])", "dâh"], // 'moderne'/'moderrene', geen 'dertig', 'derde', 'derhalve'
   ["\\b(P|p|T|t)er\\b", "$1eâh"], // 'per', 'ter'
+  ["(Z|z)auver\\b", "$1auveâh"], // 'zover'
+  ["ergi", "egi"], // 'energie'
   ["(?<![ io])er\\b", "âh"], // 'kanker', geen 'hoer', 'er', 'per', 'hier' , moet voor 'over' na o(v)(e)
-  ["(P|p)er(?!i)", "$1âh"], // 'supermarkt', geen 'periode', moet na 'per'
+  ["eiker(g|h)", "eikâh$1"], // 'bekergoal', 'bekerheld'
+  ["orm", "orrum"], // 'platform'
+  ["(P|p)er(?![aeirst])", "$1âh"], // 'supermarkt', geen 'periode', 'pers, 'expert', 'beperkt/beperrekt', 'operaties', 'beperken/beperreken' moet na 'per'
   ["(P| p)o(^st)", "$1au$2"], // 'poltici'
   ["p ik\\b", "ppik"], // 'hep ik'
   ["ppen", "ppe"], // 'poppentheater'
@@ -380,14 +410,14 @@ const originalTranslationReplacements = [
   ["ersch", "esch"], // 'verschijn'
   ["(A|a)rme", "$1rreme"], // 'arme'
   ["re(s|tr)(e|o)", "rei$1$2"], // 'resoluut', 'retro', 'reserveren'
-  ["redespa", "reidespe"], // voor Vredespaleis
+  ["palè", "pelè"], // voor Vredespaleis
   ["(R|r)elax", "$1ieleks"],
   ["(R|r)estâhrant", "$1esterant"],
   ["rants\\b", "rans"], // 'restaurants'
   ["rigste", "ragste"], // 'bloederigste'
   ["rod", "raud"], // 'madurodam'
   ["(r|R)ou", "$1oe"], // 'routes'
-  ["(a|o)rt", "$1gt"],  // 'korte'
+  ["(a|o)rt", "$1gt"], // 'korte'
   ["([Rr])o(?=ma)", "$1au"], // voor romantisch, maar haal bijv. rommel eruit
   ["inds", "ins"], // 'sinds'
   ["seque", "sekwe"], // 'inconsequenties'
@@ -396,16 +426,16 @@ const originalTranslationReplacements = [
   ["stje\\b", "ssie"], // 'beestje'
   ["st(b|d|g|h|j|k|l|m|n|p|v|w|z)", "s$1"], // 'lastpakken', geen 'str'
   ["(S|s)ouv", "$1oev"], // 'souvenirs'
-  ["(s|S)tran", "$1tgan"], // 'strand', moet 'na st-'
-  ["\\b(s|S)tr", "$1tg"], // 'strand', moet 'na st-'
   ["(?<![gr])st\\b", "s"], // 'haast', 'troost', 'gebedsdienst', geen 'barst'
   ["tep\\b", "teppie"], // 'step'
   ["té\\b", "tei"], // 'satè'
   ["tion", "sion"], // 'station'
-  ["tje\\b", "tsje"], // 'biertje'
+  ["(d|t)je\\b", "$1sje"], // 'biertje', 'mandje'
+  ["\\b(T|t)o\\b", "$1oe"], // to
   ["(p|t)o\\b", "$1au"], // 'expo', moet na 'au'/'ou'
   ["toma", "tauma"], // moet na 'au'/'ou', 'automatiek', geen 'tom'
   ["(T|t)ram", "$1rem"], // 'tram'
+  ["quaran", "karre"], // 'quarantaine', moet voor 'ua'
   ["ua", "uwa"], // 'nuance', 'menstruatie'
   ["(J|j)anu", "$1anne"], // 'januari', moet na 'ua'
   ["ùite\\b", "ùitûh"], // 'buiten'
@@ -413,40 +443,54 @@ const originalTranslationReplacements = [
   ["(U|u)ren", "$1re"], // 'uren'
   ["ùidâh\\b", "ùiâh"], // 'klokkenluider'
   ["unch", "uns"], // 'lunch'
-  ["urg", "urrag"], // 'Voorburg'
+  ["anch", "ansj"], // 'branch'
+  ["(?<![u])urg", "urrag"], // 'Voorburg', geen natuurgras
   ["(?<![u])urs", "ugs"], // 'excursies', geen 'cultuurschatten'
   ["uur", "uâh"], // 'literatuurfestival', moet voor '-urf'
   ["ur(f|k)", "urre$1"], // 'Turk','snurkende','surf'
   ["(T|t)eam", "$1iem"],
-  ["tu(?![âfkust])", "te"], // 'culturele', geen 'tua', 'vintage', 'instituut', 'tussenletter', 'stuks'
+  ["(?<![Ss])tu(?![âfkust])", "te"], // 'culturele', geen 'tua', 'vintage', 'instituut', 'tussenletter', 'stuks', 'aansturing'
   ["\\bvan je\\b", "vajje"],
   ["\\bvan (het|ut)\\b", "vannut"],
-  ["([Vv])er(?![aeious])", "$1e"], // wel 'verkoop', geen 'verse', 'veranderd', 'overeenkomsten', 'overige'
+  ["([Vv])er(?![aeèfrious])", "$1e"], // wel 'verkoop', geen 'verse', 'veranderd', 'overeenkomsten', 'overige', 'verf/verref', uitgeverij/è
+  ["([Vv])ersl", "$1esl"], // 'verslag'
   ["\\bvaka", "veka"], // 'vakantie'
   ["vaka", "veka"], // 'vakantie'
   ["vard\\b", "vâh"], // 'boulevard'
-  ["\\b(V|v)ege", "$1eige"], // 'vegetarisch'
+  ["\\b(V|v)ege(?![lz])", "$1eige"], // 'vegetarisch', geen 'vergelijking', 'vergezeld'
   ["voetbal", "foebal"],
   ["we er ", "we d'r "], // 'we er'
   ["\\ber\\b", "d'r"],
   ["\\bEr\\b", "D'r"],
+  ["(I|i)n je\\b", "$1jje"],
   ["wil hem\\b", "wil 'm"],
   ["(W|w|H|h)ee(t|l)", "$1ei$2"], // 'heel', 'heet'
   ["yo", "yau"], // 'yoga'
   ["\\b(Z|z)ee", "$1ei"], // 'zeeheldenkwartier'
+  ["eep", "iep"], // 'keeper'
   ["\\b(Z|z)ult\\b", "$1al"],
   ["z'n", "ze"], // 'z'n'
   ["\\bzich\\b", "ze ège"], // 'zich'
   ["z(au|o)'n", "zaun"],
   ["\\bzegt\\b", "zeg"],
-  ["(z|Z)o(?![enr])", "$1au"], // 'zogenaamd', geen 'zoeken', 'zondag', 'zorgen'
+  ["(z|Z)(o|ó)(?![cenr])", "$1au"], // 'zogenaamd', 'zó', geen 'zoeken', 'zondag', 'zorgen', 'zocht'
   ["'t", "ut"],
   ["derr", "dèrr"], // 'moderne, moet na 'ern'/'ode'
   ["Nie-westegse", "Niet westagse"],
   ["us sie", "us-sie"], // 'must see'
   ["\\bThe Hague\\b", "De Heek"], // moet na 'ee -> ei'
-  ["Crowne", "Kraun"],
+  ["Krowne", "Kraun"],
   ["social media", "sausjel miedieja"], // moet na 'au'
+  ["sol", "saul"], // 'resoluut'
+  ["aine", "ène"], // 'quarantaine'
+  ["tain", "tein"], // 'vuilcontainer'
+  ["(?<![eèuoin])gel\\b", "sjel"], // 'handgel', geen 'regel', 'pingel', 'vogel'
+  ["ingel\\b", "ingol"], // 'pingel'
+  ["ign", "inj"], // 'rustsignaal'
+  ["down", "dâhn"], // 'lockdown'
+  ["lock", "lok"], // 'lockdown'
+  ["(?<![s])sis(?![i])", "sus"], // 'crisis', geen 'rassis'van 'racist', 'positie'
+  ["COVID", "KAUVID"], // 'COVID-19'
 
   // quick fixups
   ["stgong>", "strong>"], // fixups for <strong tag>
@@ -498,11 +542,14 @@ function getHits(dutch: string) {
     return [];
   }
 
-  const result: Array<[string, string, string]> = [];
+  const result: [string, string, string][] = [];
   translationReplacements.reduce((r, replacement) => {
     try {
       const original = r;
-      const haags = original.replace(new RegExp(replacement[0], "gm"), replacement[1]);
+      const haags = original.replace(
+        new RegExp(replacement[0], "gm"),
+        replacement[1]
+      );
       const didHit = original.toLowerCase() !== haags.toLowerCase();
 
       if (didHit) {
@@ -520,7 +567,14 @@ function getHits(dutch: string) {
 function showHits(dutch: string) {
   getHits(dutch).map((r) => {
     // tslint:disable-next-line
-    console.log('\x1b[32m', `[${r[0]}]`, '\x1b[0m-\x1b[33m', `[${r[1]}]`, '\x1b[0m:', r[2]);
+    console.log(
+      "\x1b[32m",
+      `[${r[0]}]`,
+      "\x1b[0m-\x1b[33m",
+      `[${r[1]}]`,
+      "\x1b[0m:",
+      r[2]
+    );
   });
 }
 
