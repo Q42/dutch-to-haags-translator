@@ -123,7 +123,7 @@ const testCases = [
   ["premier provinciale resultaat Verstappen onderbreking regeren groener betrokkenen televisie Amsterdam moeder tijgermug reserve reservekeeper volledige", "premjei prauvinsjale reisultaat Vestappe ondâhbreiking regere groenâh betrokkene teilevisie Amstâhdam moedâh tègâhmug reserreve reserrevekiepâh volleidage"],
   ["fenomenale kerstfeest Valkenswaard Deurkierstandhouder kier", "feinaumenale kegsfeis Vallekeswaahd Deuâhkieâhstandhâhwâh kieâh"],
   ["logo mafketels design spelprogramma volop vorige ik je ben. boeking verbeteren. solliciteren heroïsche", "laugau mafkeitels diesain spelpraugramma vollop vorage ik je ben. boeking vebeiterûh. sollicitere herauiese"],
-  ["Apps apps developer developers iPhone iphone Iphone bal gehakt enigste", "Eps eps dievellepâh dievellepâhs aaifaun aaifaun Aaifaun beschùitstùitâh einagste"],
+  ["Apps apps developer developers iPhone iphone Iphone bal gehakt enigste welkom", "Eps eps dievellepâh dievellepâhs aaifaun aaifaun Aaifaun beschùitstùitâh einagste welkom"],
 ];
 
 test("Test different sentences", () => {

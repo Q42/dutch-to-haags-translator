@@ -411,7 +411,7 @@ const originalTranslationReplacements = [
   ["(N|n)(|o)od", "$1aud"], // 'noodzakelijk'
   ["nirs\\b", "nieâhs" ], // 'souvenirs'
   ["l(f|k|m|p)(?![aerou])", "lle$1"], // 'volkslied', 'behulp', geen 'elkaar', 'doelpunten', 'IJsselmeer', 'vuilcontainer', 'spelprogramma'
-  ["(a|e|o)lk(?![a])", "$1llek"], // 'volkslied','elke', 'Valkenswaard', geen 'elkaar'
+  ["(a|e|o)lk(?![ao])", "$1llek"], // 'volkslied','elke', 'Valkenswaard', geen 'elkaar', 'welkom'
   ["(F|f)olleklore", "$1olklore" ],
   ["o(c|k)a", "auka" ], // 'locaties'
   ["(?<![o])oms", "omps" ], // 'aankomsthal'
