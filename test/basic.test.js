@@ -2,7 +2,6 @@ const { translate } = require("../dist/translator");
 
 const testCases = [
   [null, null],
-
   ["", ""],
   ["Schilderswijk", "Schildâhswèk"],
   ["Zuiderpark", "Zùidâhparrek"],
@@ -48,7 +47,7 @@ const testCases = [
   ["Achter de pui aan het Spui is iedereen in een luie bui ", "Achtâh de pùi annut Spùi is iederein innun lùie bùi "],
   ["Geel is heel wat anders als geil, maar je kan er wel allebei een ziekte van krijgen ", "Geil is heil wat andâhs as gèl, maah je kandâh wel allebè un ziekte van krège "],
   ["Van die hete saté zat ik een uur of twee met m'n reet op de plee aan de diaree ", "Van die heite satei zattik un uâh of twei met me reit op de plei an de diarei "],// met m'n niet vertaald
-  ["Menstruatie is een bloederige situatie, net als fluctuatie van de ", "Menstruwasie issun bloedâhrige sitewasie, net as fluktewasie van de "],
+  ["Menstruatie is een bloederige situatie, net als fluctuatie van de ", "Menstruwasie issun bloederige sitewasie, net as fluktewasie van de "],
   ["De vla lag in de la van ma en zij lag op d'r pa, die dat niet echt naar of raar vond, medeklinkers ", "De vla lag in de la van ma en zè lag op d'r pa, die dat nie ech naah of raah vond, meideklinkâhs "],
   ["Ruud zei resoluut ik huur acuut een wijf a la minuut ", "Ruud zè reisauluut ik huâh akuut un wèf a la minuut "],
   ["Is dat je haar of heb je jongen gekregen Maar troost jezelf op een ooievaar groeit helemaal geen haar, dat is raar maar wel waar en zo kennen we er nog wel een paar ", "Is dat je haah of hebbie jonge gekreige Maah traus je ège op un auievaah groeit heilemaal gein haah, da's raah maah wel waah en zau kenne we d'r nog wel un paah "],
@@ -103,7 +102,7 @@ const testCases = [
   ["touch vakantiegevoel hofjes dagje ", "tats vekansiegevoel hoffies daggie "],
   ["stoere surfers populairste Geniet van de weidsheid dynamisch decor beroemde erwtensoep ", "stoere surrefâhs paupelèhste Geniet van de wèdshèd dinamies dekoâh beroemde erretesoep "],
   ["Zinnenprikkelende producten verser dan vers kwalitatieve reeds overgebleven instaprondleiding, je zult je Beauty & the Beast", "Zinneprikkelende praudukte vegsâh dan vegs kwalitatieve reids auvâhgebleive instaprondlèding, je zal je ège Bjoetie & de Bies"],
-  ["modeontwerper bezienswaardigheden relaxen markante bloederigste originele dichtbij spectaculaire stork vegetarisch Cuisine cuisine volgens", "maudeontwerrepâh bezienswaahdigheide rielekse magkante bloedâhragste oâhgineile dichbè spektakelère storrek veigetaries Kwiesien kwiesien volleges"],
+  ["modeontwerper bezienswaardigheden relaxen markante bloederigste originele dichtbij spectaculaire stork vegetarisch Cuisine cuisine volgens", "maudeontwerrepâh bezienswaahdigheide rielekse magkante bloederagste oâhgineile dichbè spektakelère storrek veigetaries Kwiesien kwiesien volleges"],
   ["Tripadvisor skiën Overnachten SEA LIFE Europese Nachtje Bites Crowne .com instituut sterker", "Tripetfaaisoâh skieje Auvâhnachte SIELÈF Euraipeise Nachie Bèts Kraun .kom instituut sterrekâh"],
   ["bospaddenstoelen saus uitwaaien roots bezoekerscentrum", "bospaddestoele sâhs ùitwaaie roets bezoekâhscentrum"],
   ["strandseizoen plezierig dertig beach", "strandsèzoen plezieâhrag deâhtag bietsj"],
@@ -123,7 +122,8 @@ const testCases = [
   ["Young young You zone levert spijker hals gegaan kledder onderneming vriendelijke vertelde verpakking rundergehakt stenen officiële ondertussen meteen", "Jong jong Joe zone leivâht spèkâh hals gegaan kleddâh ondâhneiming vriendâhlijke vetelde vepakking rundâhgehak steine offesjeile ondâhtusse metein"],
   ["premier provinciale resultaat Verstappen onderbreking regeren groener betrokkenen televisie Amsterdam moeder tijgermug reserve reservekeeper volledige", "premjei prauvinsjale reisultaat Vestappe ondâhbreiking regere groenâh betrokkene teilevisie Amstâhdam moedâh tègâhmug reserreve reserrevekiepâh volleidage"],
   ["fenomenale kerstfeest Valkenswaard Deurkierstandhouder kier", "feinaumenale kegsfeis Vallekeswaahd Deuâhkieâhstandhâhwâh kieâh"],
-  ["logo mafketels design spelprogramma volop", "laugau mafkeitels diesain spelpraugramma vollop"],
+  ["logo mafketels design spelprogramma volop vorige ik je ben. boeking verbeteren. solliciteren heroïsche", "laugau mafkeitels diesain spelpraugramma vollop vorage ik je ben. boeking vebeiterûh. sollicitere herauiese"],
+  ["Apps apps developer developers iPhone iphone Iphone bal gehakt enigste", "Eps eps dievellepâh dievellepâhs aaifaun aaifaun Aaifaun beschùitstùitâh einagste"],
 ];
 
 test("Test different sentences", () => {

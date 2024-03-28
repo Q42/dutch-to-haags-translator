@@ -1,6 +1,6 @@
 {
   "name": "@q42/dutch-to-haags-translator",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Translate Dutch to the Hague dialect",
   "main": "dist/translator.js",
   "engines": {
