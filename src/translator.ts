@@ -460,7 +460,7 @@ const originalTranslationReplacements = [
   ["rigste", "ragste"], // 'bloederigste'
   ["rod", "raud"], // 'madurodam'
   ["(r|R)ou", "$1oe"], // 'routes'
-  ["(a|o)rt", "$1gt"],  //'korte'
+  ["(a|o)rt", "$1gt"],  // 'korte'
   ["([Rr])o(?=ma)" , "$1au"], // voor romantisch, maar haal bijv. rommel eruit
   ["inds", "ins"], // 'sinds'
   ["seque", "sekwe"], // 'inconsequenties'
