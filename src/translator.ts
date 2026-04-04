@@ -555,8 +555,8 @@ function checkNodeVersion() {
     return;
   }
   const majorVersion = Number(match[1]);
-  if (majorVersion < 10) {
-    throw new Error("This package requires Node v10 or higher");
+  if (majorVersion < 20) {
+    throw new Error("This package requires Node.js v20 or higher");
   }
 }
 
@@ -570,7 +570,7 @@ function translate(dutch: string) {
   return translationReplacements.reduce((result, replacement) => {
     try {
       return result.replace(new RegExp(replacement[0], "gm"), replacement[1]);
-    } catch (e) {
+    } catch {
       return result;
     }
   }, dutch);
@@ -595,7 +595,7 @@ function getHits(dutch: string) {
         result.push([replacement[0], replacement[1], haags]);
       }
       return haags;
-    } catch (e) {
+    } catch {
       return r;
     }
   }, dutch);
@@ -604,8 +604,7 @@ function getHits(dutch: string) {
 }
 
 function showHits(dutch: string) {
-  getHits(dutch).map((r) => {
-    // tslint:disable-next-line
+  for (const r of getHits(dutch)) {
     console.log(
       "\x1b[32m",
       `[${r[0]}]`,
@@ -614,7 +613,7 @@ function showHits(dutch: string) {
       "\x1b[0m:",
       r[2]
     );
-  });
+  }
 }
 
 module.exports = {
