@@ -452,8 +452,12 @@ const testCases = [
     "Eps eps dievellepâh dievellepâhs aaifaun aaifaun Aaifaun beschùitstùitâh einagste welkom Kèkstègâh Kèkstègâh",
   ],
   [
-    "precies Heeft ermee asielminister schoolklas demissionair democratie emotie alternatieve Renze",
-    "precies Hep ermei asielministâh schaulklas deimissiaunèâh deimaukrasie eimausie altâhnatieve Renze",
+    "Heeft ermee asielminister schoolklas demissionair democratie emotie alternatieve Renze terschelling moedertaal waalberg",
+    "Hep ermei asielministâh schaulklas deimissiaunèâh deimaukrasie eimausie altâhnatieve Renze teschelling moedâhtaal waalberrag",
+  ],
+  [
+    "precies oneetbaar teleurgesteld onophoudelijk journaal (en",
+    "precies oneitbaah teleuâhgesteld onophâhwelijk sjoeâhnaal (en",
   ],
 ];
 
