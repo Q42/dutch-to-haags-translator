@@ -456,9 +456,10 @@ const testCases = [
     "Hep ermei asielministâh schaulklas deimissiaunèâh deimaukrasie eimausie altâhnatieve Renze teschelling moedâhtaal waalberrag",
   ],
   [
-    "precies oneetbaar teleurgesteld onophoudelijk journaal (en",
-    "precies oneitbaah teleuâhgesteld onophâhwelijk sjoeâhnaal (en",
+    "precies oneetbaar teleurgesteld onophoudelijk journaal (en sprinters tourbus woedende wisselfestein touringcar",
+    "precies oneitbaah teleuâhgesteld onophâhwelijk sjoeâhnaal (en sprintâhs toeâhbus woedende wisselfestèn toeringkar",
   ],
+  ["verandert", "verandâht"],
 ];
 
 test("Test different sentences", () => {

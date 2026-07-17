@@ -92,7 +92,7 @@ const originalTranslationReplacements = [
   ["uier\\b", "uiâh"],
   ["ui", "ùi"],
   ["Ui", "Ùi"],
-  ["(?<![ieopfv])ert\\b", "egt"],
+  ["(?<![ideopfv])ert\\b", "egt"], // 'gert', geen 'viert', 'expert', 'levert', 'verandert'
   ["pert\\b", "peâh"],
   ["\\b(V|v)ert", "$1et"],
   ["(?<![eo])erte", "egte"],
@@ -106,7 +106,8 @@ const originalTranslationReplacements = [
   ["oele\\b", "oel"],
   ["(au|ou)w(?!e)", "$1"],
   ["oude", "ouwe"],
-  ["\\b(T|t)our\\b", "$1oeâh"],
+  ["\\b(T|t)ouring", "$1oering"],
+  ["\\b(T|t)our", "$1oeâh"],
   ["diner\\b", "dinei"],
   ["o(e|u)r\\b", "oeâh"],
   ["oer(?![aieou])", "oeâh"],
@@ -215,7 +216,7 @@ const originalTranslationReplacements = [
   ["kens", "kes"],
   ["(D|d)ance", "$1ens"],
   ["(?<![ hi])eden\\b", "eije"],
-  ["(?<![ bgi])eden", "eide"],
+  ["(?<![ bgio])eden", "eide"], // 'hedendaagse', geen 'bedenken', 'woedende'
   ["\\b(E|e)ve", "$1ive"],
   ["(?<![a])(m|M|R|r)e(d|t|n)e(?![ei])", "$1ei$2e"],
   ["(G|g)ener", "$1einer"],
@@ -235,7 +236,7 @@ const originalTranslationReplacements = [
   ["epers\\b", "epâhs"],
   ["(P|p)ers(?![l])", "$1egs"],
   ["(K|k)erst", "$1egs"],
-  ["(?<![e])(t|V|v)ers(?![clt])", "$1egs"],
+  ["(?<![en])(t|V|v)ers(?![clt])", "$1egs"], // 'vers', 'personeel', 'versie', 'diverse', geen 'gevers', 'verscheen', 'eerste', 'sprinters'
   ["(G|g)eve(r|n)", "$1eive$2"],
   ["(t|w|W)ene", "$1eine"],
   ["renstr", "restr"],
@@ -395,7 +396,7 @@ const originalTranslationReplacements = [
   ["\\b(L|l)igge\\b", "$1egge"],
   ["\\b(L|l)igt\\b", "$1eg"],
   ["(?<![p])(L|l)ez", "$1eiz"],
-  ["lf", "lluf"],
+  ["lf(?![e])", "lluf"], // 'zelfde', geen 'wisselfestein'
   ["ll([ ,.])", "l$1"],
   ["(a|e|i|o|u)rk\\b", "$1rrek"],
   ["(P|p)arke", "$1agke"],
@@ -439,6 +440,7 @@ const originalTranslationReplacements = [
   ["\\bOut", "Âht"],
   ["\\b(V|v)er\\b", "$1eâh"],
   ["ederta", "edâhta"],
+  ["dert\\b", "dâht"], // 'verandert'
   ["(D|d)ert(?![u])", "$1eâht"],
   ["\\b(D|d)er\\b", "$1eâh"],
   ["der(?![dehianrouèt])", "dâh"],
